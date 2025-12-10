@@ -1,0 +1,2 @@
+# Amazon-Scatterometry/generate_mask
+Functions to generate a new land mask file from a .sir or .nc file containing a sir image. generate_*_land_mask.m files will output a .sir file, which can then be converted into a georeferenced .tif file for use in GIS software. The various sir functions included in this directory are provided as a backup, but the sir processing files are best obtained from the MERS website.
