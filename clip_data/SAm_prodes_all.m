@@ -1,13 +1,16 @@
 % SAm box: y = (130,823), x = (103,1009)
 % box - min y, max y, min x, max x
 box = [130, 823, 103, 1009];
-start_year = 2007;
+% start_year = 2007;
+% start_day = 1;
+% end_year = 2022;
+% end_day = 319;
+start_year = 2008;
 start_day = 1;
-end_year = 2022;
-end_day = 319;
-biome_clip_path = "/auto/home/mcbride/programs/tools/biome_clip";
-output = "/auto/home/mcbride/programs/tools/biome_clip/sam_prodes_all.mat";
-mask_file = "~/Amazon-Scatterometry/base_rasters/SAm_biome_mask.tif";
+end_year = 2024;
+end_day = 39;
+output = "/auto/home/mcbride/Amazon-Scatterometry/output/sam_prodes_all.mat";
+mask_file = "/auto/home/mcbride/Amazon-Scatterometry/base_rasters/SAm_biome_mask.tif";
 data_path = "/auto/home/mcbride/deforestation/SAm/prodes_all/rasters";
 biome=readgeoraster(mask_file);
 mask = (biome ~= 0);
@@ -15,7 +18,7 @@ mask = (biome ~= 0);
 filenames = dir(data_path);
 
 clips = [];
-num_files = length(filenames);
+num_files = size(filenames,1);
 for i=3:num_files
     % clip image to biome extent
     file = filenames(i);

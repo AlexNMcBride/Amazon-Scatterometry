@@ -10,8 +10,11 @@ else
     leap_year = false;
     days = 365;
 end
-% file_str = "/auto/home/mers_data/ASCAT2/%d-%03d-%d/BYU-ASCAT-EASE2_%s3.125km-METOP_ASCAT-%d%03d_%d%03d-5.3VV-B-%s-v1.0.nc";
-file_str = "/auto/home/mers_data/ASCAT_store2/%d-%03d-%d/BYU-ASCAT-EASE2_%s3.125km-METOP_ASCAT-%d%03d_%d%03d-5.3VV-D-%s-v1.0.nc";
+if year < 2018
+    file_str = "/auto/home/mers_data/ASCAT/%d-%03d-%d/BYU-ASCAT-EASE2_%s3.125km-METOP_ASCAT-%d%03d_%d%03d-5.3VV-B-%s-v1.0.nc";
+else
+    file_str = "/auto/home/mers_data/ASCAT2/%d-%03d-%d/BYU-ASCAT-EASE2_%s3.125km-METOP_ASCAT-%d%03d_%d%03d-5.3VV-B-%s-v1.0.nc";
+end
 % Has both Ama and SAm regions
 for n=first_date:end_date
     finish_date = mod(n + length - 1, days);

@@ -6,7 +6,7 @@ end_year = 2022;
 end_day = 319;
 biome_clip_path = "/auto/home/mcbride/programs/tools/biome_clip";
 output = "/auto/home/mcbride/programs/tools/biome_clip/sam_prodes_def.mat";
-mask_file = "~/Amazon-Scatterometry/base_rasters/SAm_biome_mask.tif";
+mask_file = "/auto/home/mcbride/Amazon-Scatterometry/SAm_biome_mask.tif";
 data_path = "/auto/home/mcbride/deforestation/SAm/prodes_def/rasters";
 biome=readgeoraster(mask_file);
 mask = (biome ~= 0);

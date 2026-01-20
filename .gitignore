@@ -1,2 +1,4 @@
 output
 base_rasters/ASCAT_cetb_biome_mask.tif
+*.asv
+*/*.asv

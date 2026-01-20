@@ -5,36 +5,14 @@ biome_clip_path = "/auto/home/mcbride/programs/tools/biome_clip";
 mask_file = "/auto/home/mcbride/Amazon-Scatterometry/base_rasters/ESCAT_cetb_biome_mask.tif";
 biome=readgeoraster(mask_file);
 mask = (biome ~= 0);
+start_year = 2008;
+start_day = 1;
+end_year = 2024;
+end_day = 39;
+length = 4;
 
-ers_num = 3;
-length = 18;
-% ERS-1
-if ers_num == 1
-    start_year = 1991;
-    start_day = 213;
-    end_year = 1996;
-    end_day = 154;
-elseif ers_num == 2
-    start_year = 1996;
-    start_day = 86;
-    end_year = 2011;
-    end_day = 185;
-else
-    % MERSback range
-    start_year = 1992;
-    start_day = 1;
-    end_year = 2001;
-    end_day = 19;
-end
-
-length = 18;
-for year=start_year:end_year
-    if ers_num == 1 || ers_num == 2
-        output = sprintf("/auto/home/mcbride/Amazon-Scatterometry/output/ers%d_%d_day_scat_%d.mat",ers_num,length,year);
-    else
-        output = sprintf("/auto/home/mcbride/Amazon-Scatterometry/output/ers_%d_day_scat_%d.mat",length,year);
-    end
-    
+for year=2008:2024
+    output = sprintf("/auto/home/mcbride/Amazon-Scatterometry/output/ascat_cetb_%d_day_scat_%d_6.25km.mat",year,length);
     scat_filenames = [];
     clips = [];
     if year == start_year
@@ -47,14 +25,9 @@ for year=start_year:end_year
     else
         stop = 365;
     end
-    if ers_num == 1 || ers_num == 2
-        scat_filenames = get_ers2_cetb_file_names(year,start,stop,ers_num,'T',length);
-    else
-        scat_filenames = get_ers_cetb_file_names(year,start,stop,'T',length);
-    end
+    scat_filenames = get_ascat_cetb_file_names(year,start,stop,'T',length);
     scat_filenames = sort(scat_filenames);
     
-    clips = [];
     num_files = size(scat_filenames);
     for i=1:num_files(2)
         file_path = scat_filenames(i);
@@ -62,17 +35,18 @@ for year=start_year:end_year
         nc = readcetb0(file_path);
         % head = cetb2sir_head(nc);
         img = nc.sir;
-        sigma0 = img .* mask;
+        scaled_img = imresize(img,[2160 5552]);
+        sigma0 = scaled_img .* mask;
         clip = sigma0(box(1):box(2),box(3):box(4));
         clip(clip == 0) = NaN;
         % get image date
-        name = split(name,'_');
-        dates = name(8);
-        lenstr = split(dates,'-');
+        name = split(name,'-');
+        dates = name(5);
+        lenstr = split(dates,'_');
         startstr = lenstr(1);
-        year = str2num(extractBefore(startstr,5));
-        month = str2num(extractBetween(startstr,5,6));
-        day = str2num(extractBetween(startstr,7,8));
+        year = str2double(extractBefore(startstr,5));
+        jul_date = str2double(extractAfter(startstr,4));
+        [month, day] = doy2date_wrap(jul_date,year);
         time = datetime(year,month,day);
         % save to data structure
         clip_data = struct('date', time, 'length', length, 'img', clip);

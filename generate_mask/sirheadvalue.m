@@ -1,34 +1,32 @@
-function head=setsirhead(option,head,value);
+function value=sirheadvalue(option,head);
 %
-%   head=setsirhead(option,head,value)
+%   value=sirheadvalue(option,head);
 %
-% sets parameter option in the SIR header array head to value
+% returns a parameters value extracted from the SIR file header
 % Option is set by SIR header parameters name
 %
-% option:     string containing name of option to change
+% option:     string containing name of option
 % head:       array contain SIR header parameters
-% value:      value to set header parameter to
 %
-% Option list:  (this require numeric inputs for value)
+% Option list:  (these return numeric values)
 %  'nsx'   'nsy'     'xdeg'    'ydeg'    'nhtype'    'ascale'  'bscale' 'a0'
 %  'b0'    'ioff'    'iscale'  'iyear'   'isday'     'ismin'   'ieday' 'iemin'
 %  'iopt'  'iregion' 'itype'   'nhead'   'ndes'      'ldes'     'nia'
 %  'vmin'  'vmax'    'anodata' 'ispare1' 'idatatype' 'i0_sc'
 %  'iscale_sc'     'ixdeg_off' 'iydeg_off'            'ideg_sc'  
-%  'ia0_off'       'ib0_off'   'ifreqhm'  'ipol'
+%  'ia0_off'       'ib0_off'    'ifreqm' 'ipol'
 %
-%  (these options require string inputs)
+%  (these options return string values)
 %  'sensor' 'title' 'type' 'tag' 'crproc' 'crtime'
 %
-% CAUTION: this routine does NOT protect against invalid value and can
-%          result in an unusable/unreadable SIR file header
-%
-% see also sirheadvalue (returns a value by hame)
+% see also 
+%   setsirhead (sets a sir header value by name)
+%   display_head (returns list of head options and values)
 %
 
 % Version 3.0   written 28 Oct 2000  by DGL
 % revised 12/2/2006 by DGL + added missing variables
-% revised 06/2/2023 by DGL + support string or char arrays
+% revised  7/6/2009 by DGL + fixed length of type variable
 %
 %	header mapping (see code for scaling of <= variables)
 %       this routine reads raw header, scales variables and stores
@@ -83,166 +81,147 @@ function head=setsirhead(option,head,value);
 %	head(242:255) 28 chars of crtime
 %       head(256) =  i0_sc             ! a0,b0 scale factor 
 
-nhtype=head(5);
-
 switch lower(option)
   case 'nsx'
-    head(1)=value;
+    value=head(1);
   case 'nsy'
-    head(2)=value;
+    value=head(2);
   case 'xdeg'
-    head(3)=value;
+    value=head(3);
   case 'ydeg'
-    head(4)=value;
+    value=head(4);
   case 'nhtype'
-    head(5)=value;
+    value=head(5);
   case 'ascale'
-    head(6)=value;
+    value=head(6);
   case 'bscale'
-    head(7)=value;
+    value=head(7);
   case 'a0'
-    head(8)=value;
+    value=head(8);
   case 'b0'
-    head(9)=value;
+    value=head(9);
   case 'ioff'
-    head(10)=value;
+    value=head(10);
   case 'iscale'
-    head(11)=value;
+    value=head(11);
   case 'iyear'
-    head(12)=value;
+    value=head(12);
   case 'isday'
-    head(13)=value;
+    value=head(13);
   case 'ismin'
-    head(14)=value;
+    value=head(14);
   case 'ieday'
-    head(15)=value;
+    value=head(15);
   case 'iemin'
-    head(16)=value;
+    value=head(16);
   case 'iopt'
-    head(17)=value;
+    value=head(17);
   case 'iregion'
-    head(18)=value;
+    value=head(18);
   case 'itype'
-    head(19)=value;
+    value=head(19);
   case 'iscale_sc'
-    head(40)=value;
+    value=head(40);
   case 'nhead'
-    head(41)=value;
+    value=head(41);
   case 'ndes'
-    head(42)=value;
+    value=head(42);
   case 'ldes'
-    head(43)=value;
+    value=head(43);
   case 'nia'
-    head(44)=value;
+    value=head(44);
   case 'ipol'
-    head(45)=value;
-  case 'ifreqhm'
-    head(46)=value;
+    value=head(45);
+  case 'ifreqm'
+    value=head(46);
   case 'ispare1'
-    head(47)=value;
+    value=head(47);
   case 'idatatype'
-    head(48)=value;
+    value=head(48);
   case 'anodata'
-    head(49)=value;
+    value=head(49);
   case 'vmin'
-    head(50)=value;
+    value=head(50);
   case 'vmax'
-    head(51)=value;
+    value=head(51);
   case 'ixdeg_off'
-    head(127)=value;
+    value=head(127);
   case 'iydeg_off'
-    head(128)=value;
+    value=head(128);
   case 'ideg_sc'
-    head(169)=value;
+    value=head(169);
   case 'ia0_off'
-    head(190)=value;
+    value=head(190);
   case 'ib0_off'
-    head(241)=value;
+    value=head(241);
   case 'i0_sc'
-    head(256)=value;
+    value=head(256);
 
     %
     % strings
     %
     
   case 'sensor'
-    if isstring(value)
-      s=convertStringsToChars(value);
-    else
-      s=real(value);
-    end
-    s(41)=0;
-    s=s(1:40);
+    value(40)=0;
     for i=1:20
       j=(i-1)*2+1;
-      head(i+19)=s(j)+s(j+1)*256;
+      value(j)=(mod(head(i+19),256));
+      value(j+1)=floor(head(i+19)/256);
     end;
-    
+    value=setstr(value);
+
   case 'title'
-    if isstring(value)
-      s=convertStringsToChars(value);
-    else
-      s=real(value);
-    end
-    s(81)=0;
-    s=s(1:80);
+    value(80)=0;
     for i=1:40
       j=(i-1)*2+1;
-      head(i+128)=s(j)+s(j+1)*256;
+      value(j)=(mod(head(i+128),256));
+      value(j+1)=floor(head(i+128)/256);
     end;
-    
+    value=setstr(value);
+
   case 'type'
-    if isstring(value)
-      s=convertStringsToChars(value);
-    else
-      s=real(value);
-    end
-    s(139)=0;
-    s=s(1:138);
+    value(138)=0;
     for i=1:69
       j=(i-1)*2+1;
-      head(i+57)=s(j)+s(j+1)*256;
+      value(j)=(mod(head(i+57),256));
+      value(j+1)=floor(head(i+57)/256);
     end;
+    value=setstr(value);
 
   case 'tag'
-    if isstring(value)
-      s=convertStringsToChars(value);
-    else
-      s=real(value);
-    end
-    s(41)=0;
-    s=s(1:40);
+    value(40)=0;
     for i=1:20
       j=(i-1)*2+1;
-      head(i+169)=s(j)+s(j+1)*256;
+      value(j)=(mod(head(i+169),256));
+      value(j+1)=floor(head(i+169)/256);
     end;
+    value=setstr(value);
 
   case 'crproc'
-    if isstring(value)
-      s=convertStringsToChars(value);
-    else
-      s=real(value);
-    end
-    s(101)=0;
-    s=s(1:100);
+    value(100)=0;
     for i=1:50
       j=(i-1)*2+1;
-      head(i+190)=s(j)+s(j+1)*256;
+      value(j)=(mod(head(i+190),256));
+      value(j+1)=floor(head(i+190)/256);
     end;
-
+    value=setstr(value);
+    
   case 'crtime'
-    if isstring(value)
-      s=convertStringsToChars(value);
-    else
-      s=real(value);
-    end
-    s(29)=0;
-    s=s(1:28);
+    value(28)=0;
     for i=1:14
       j=(i-1)*2+1;
-      head(i+241)=s(j)+s(j+1)*256;
-  end;
+      value(j)=(mod(head(i+241),256));
+      value(j+1)=floor(head(i+241)/256);
+    end;
+    value=setstr(value);
     
   otherwise
     disp('Unknown option');
 end
+
+
+
+
+
+
+

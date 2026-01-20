@@ -1,9 +1,9 @@
 % provides the x and y limits needed to clip overlap and scatterometer images to solely the Amazon biome
 clear
-masks_path="~/Amazon-Scatterometry/base_rasters";
-SAm_biome_mask="~/Amazon-Scatterometry/base_rasters/SAm_biome_mask.tif";
-ASCAT_biome_mask="~/Amazon-Scatterometry/base_rasters/ASCAT_cetb_biome_mask.tif";
-ESCAT_biome_mask="~/Amazon-Scatterometry/base_rasters/ESCAT_cetb_biome_mask.tif";
+masks_path="/auto/home/mcbride/Amazon-Scatterometry/base_rasters";
+SAm_biome_mask="/auto/home/mcbride/Amazon-Scatterometry/base_rasters/SAm_biome_mask.tif";
+ASCAT_biome_mask="/auto/home/mcbride/Amazon-Scatterometry/base_rasters/ASCAT_cetb_biome_mask.tif";
+ESCAT_biome_mask="/auto/home/mcbride/Amazon-Scatterometry/base_rasters/ESCAT_cetb_biome_mask.tif";
 
 sam_biome=readgeoraster(SAm_biome_mask);
 ascat_biome=readgeoraster(ASCAT_biome_mask);

@@ -1,6 +1,6 @@
 function [month day iyyy] = doy2date(doy,year)
 %
-% [month day] = doy2date(doy,year)
+% [month day] = doy2date_wrap(doy,year)
 %
 % given day of year and year, returns month and year
 %
