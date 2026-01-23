@@ -6,7 +6,7 @@ mask_file = "/auto/home/mcbride/Amazon-Scatterometry/base_rasters/ESCAT_cetb_bio
 biome=readgeoraster(mask_file);
 mask = (biome ~= 0);
 
-ers_num = 3;
+ers_num = 2;
 length = 18;
 % ERS-1
 if ers_num == 1
@@ -66,14 +66,26 @@ for year=start_year:end_year
         clip = sigma0(box(1):box(2),box(3):box(4));
         clip(clip == 0) = NaN;
         % get image date
-        name = split(name,'_');
-        dates = name(8);
-        lenstr = split(dates,'-');
-        startstr = lenstr(1);
-        year = str2num(extractBefore(startstr,5));
-        month = str2num(extractBetween(startstr,5,6));
-        day = str2num(extractBetween(startstr,7,8));
-        time = datetime(year,month,day);
+        if ers_num == 1 || ers_num == 2
+            name = split(name,'-');
+            dates = name(5);
+            lenstr = split(dates,'_');
+            startstr = lenstr(1);
+            year = str2num(extractBefore(startstr,5));
+            julday = str2num(extractAfter(startstr,4));
+            [month day] = doy2date_wrap(julday,year);
+            time = datetime(year,month,day);
+        else
+            name = split(name,'_');
+            dates = name(8);
+            lenstr = split(dates,'-');
+            startstr = lenstr(1);
+            year = str2num(extractBefore(startstr,5));
+            month = str2num(extractBetween(startstr,5,6));
+            day = str2num(extractBetween(startstr,7,8));
+            time = datetime(year,month,day);
+        end
+        
         % save to data structure
         clip_data = struct('date', time, 'length', length, 'img', clip);
         clips = [clips clip_data];

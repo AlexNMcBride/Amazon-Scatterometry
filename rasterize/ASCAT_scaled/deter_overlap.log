@@ -1,0 +1,10 @@
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock.rmlock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock.rmlock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock.rmlock.rmlock.rmlock" maybe permissions changed meanwhile?
+setNativeLocks failed: "Resource temporarily unavailable"
+setNativeLocks failed: "Resource temporarily unavailable"
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock.rmlock.rmlock" maybe permissions changed meanwhile?

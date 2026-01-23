@@ -8,5 +8,6 @@ raster_directory="/auto/home/mcbride/deforestation/ASCAT_cetb/deter/rasters"
 start_year=2008
 end_year=2024
 
-/auto/home/mcbride/Amazon-Scatterometry/rasterize/overlap_analysis.sh $pixels_file $shapes_directory $overlap_directory $start_year $end_year
-/auto/home/mcbride/Amazon-Scatterometry/rasterize_overlap.sh $overlap_directory $raster_directory $base_raster $extent
+for year in $(seq $start_year $end_year); do
+	/auto/home/mcbride/Amazon-Scatterometry/rasterize/overlap_analysis.sh $pixels_file $shapes_directory $overlap_directory $year $year > "./deter_logs/deter_overlap_$year.log" &
+done

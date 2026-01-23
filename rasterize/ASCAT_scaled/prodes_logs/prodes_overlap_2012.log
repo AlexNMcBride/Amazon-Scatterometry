@@ -1,0 +1,152 @@
+Pixels: /auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+Pixels layer: ESCAT_cetb_pixels_clean
+Shapes: /auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes
+Overlap: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-10-24_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-10-24.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-10-24_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-10-24
+0...10...20...30...40...50...60...70...80...90...100 - done.
+
+----------------
+Results
+----------------
+
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-10-24_overlap.gpkg
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-07-03_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-07-03.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-07-03_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-07-03
+0...10...20...30...40...50...60...70...80...90...100 - done.
+
+----------------
+Results
+----------------
+
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-07-03_overlap.gpkg
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-08-04_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-08-04.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-08-04_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-08-04
+0...10...20...30...40...50...60...70...80...90...100 - done.
+
+----------------
+Results
+----------------
+
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-08-04_overlap.gpkg
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-11-10_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-11-10.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-11-10_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-11-10
+0...10...20...30...40...50...60...70...80...90...100 - done.
+
+----------------
+Results
+----------------
+
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-11-10_overlap.gpkg
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-09-05_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-09-05.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-09-05_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-09-05
+0...10...20...30...40...50...60...70...80...90...100 - done.
+
+----------------
+Results
+----------------
+
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-09-05_overlap.gpkg
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-07-07_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-07-07.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-07-07_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-07-07
+0...10...20...30...40...50...60...70...80...90...100 - done.
+
+----------------
+Results
+----------------
+
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-07-07_overlap.gpkg
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-09-11_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2012-09-11.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_scaled/prodes_all/overlap/image_date_2012-09-11_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing image_date_2012-09-11
+0...10...20...30...40.

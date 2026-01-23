@@ -1,0 +1,20 @@
+Pixels: /auto/home/mcbride/deforestation/ASCAT_cetb/pixels/ASCAT_cetb_pixels_clean.gpkg
+Pixels layer: ASCAT_cetb_pixels_clean
+Shapes: /auto/home/mcbride/QGIS/cetb_amazon/daily_deter
+Overlap: /auto/home/mcbride/deforestation/ASCAT_cetb/deter/overlap
+Overlap file: /auto/home/mcbride/deforestation/ASCAT_cetb/deter/overlap/DTIMGANT_2017-10-02_overlap.gpkg
+
+----------------
+Inputs
+----------------
+
+INPUT:	/auto/home/mcbride/deforestation/ASCAT_cetb/pixels/ASCAT_cetb_pixels_clean.gpkg
+LAYERS:	/auto/home/mcbride/QGIS/cetb_amazon/daily_deter/DTIMGANT_2017-10-02.gpkg
+OUTPUT:	/auto/home/mcbride/deforestation/ASCAT_cetb/deter/overlap/DTIMGANT_2017-10-02_overlap.gpkg
+
+Using ellipsoid:	EPSG:7030
+Using distance unit:	meters
+Using area unit:	square meters
+
+Preparing DTIMGANT_2017-10-02
+0...10...20...30..

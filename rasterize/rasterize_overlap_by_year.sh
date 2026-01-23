@@ -3,6 +3,7 @@
 overlap_directory=$1
 raster_directory=$2
 base_raster=$3
+year=$5
 
 # xmin=$(gdalinfo $base_raster | grep "Lower Left" | cut -d '(' -f 2 | cut -d ',' -f 1)
 # xmax=$(gdalinfo $base_raster | grep "Upper Right" | cut -d '(' -f 2 | cut -d ',' -f 1)
@@ -19,11 +20,13 @@ export QT_QPA_PLATFORM=offscreen
 export QT_QPA_PLATFORM=minimal
 
 for overlap in $overlap_directory/*.gpkg; do
+
         layername=$(basename $overlap .gpkg)
         output_file="$raster_directory/${layername}.tif"
+    	file_year=$(echo $layername | grep -oE '[0-9]{4}')
         if [ -f "$output_file" ]; then
         	echo "$output_file raster exists"
-    	else
+    	elif [ $year == $file_year ]; then
 		    field="${layername%_overlap}"_pc
 		    input="$overlap|layername=$layername"
 		    qgis_process run gdal:rasterize \

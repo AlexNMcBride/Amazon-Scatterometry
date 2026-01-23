@@ -1,0 +1,4 @@
+Pixels: /auto/home/mcbride/deforestation/ESCAT_cetb/pixels/ESCAT_cetb_pixels_clean.gpkg
+Pixels layer: ESCAT_cetb_pixels_clean
+Shapes: /auto/home/mcbride/QGIS/cetb_amazon/daily_deter
+Overlap: /auto/home/mcbride/deforestation/ASCAT_scaled/deter/overlap

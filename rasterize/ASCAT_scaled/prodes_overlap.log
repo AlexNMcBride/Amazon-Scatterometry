@@ -1,0 +1,29 @@
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR: Status 3: Unable to load mesh (null)
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR 4: `/auto/home/mcbride/QGIS/cetb_amazon/daily_prodes/all_causes/image_date_2018-06-25.gpkg' not recognized as a supported file format.
+ERROR: Status 3: Unable to load mesh (null)
+ERROR:	An error was encountered while checking parameter values
+	Incorrect parameter value for LAYERS
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock.rmlock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock" maybe permissions changed meanwhile?
+setNativeLocks failed: "Resource temporarily unavailable"
+setNativeLocks failed: "Resource temporarily unavailable"
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock" maybe permissions changed meanwhile?
+setNativeLocks failed: "Resource temporarily unavailable"
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.config/Unknown Organization/qgis_process.bin.conf.lock" maybe permissions changed meanwhile?
+Could not remove our own lock file "/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock" maybe permissions changed meanwhile?
+QLockFile: Lock file '/auto/home/mcbride/.local/share/QGIS/QGIS3/profiles/default/QGIS/QGIS3.ini.lock.rmlock' has a modification time in the future
