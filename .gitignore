@@ -2,3 +2,9 @@ output
 base_rasters/ASCAT_cetb_biome_mask.tif
 *.asv
 */*.asv
+rasterize/*/~
+rasterize/QGIS
+rasterize/*/*logs
+rasterize/test
+rasterize/*/QGIS
+data
