@@ -1,5 +1,5 @@
 load("./data/ascat_scat_prodes.mat")
-output="./data/t_ascat_scat_prodes.mat";
+output="./data/t_ascat_scat_def.mat";
 thresh=1.0;
 % idx=~isoutlier(T.means1,"mean", "ThresholdFactor", thresh);
 idx=T.def1~=0 & ~isnan(T.def1);

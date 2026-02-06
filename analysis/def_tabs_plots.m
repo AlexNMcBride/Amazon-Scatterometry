@@ -1,12 +1,26 @@
-def_file="./data/ascat_scat_prodes.mat";
+def_file="./data/t_ascat_scat_acc.mat";
 load(def_file)
-steps=40;
-pts=size(def_tab,1);
+steps=100;
 d_edges=linspace(min(def_tab.defs),max(def_tab.defs),steps);
 a_edges=linspace(min(def_tab.anoms),max(def_tab.anoms),steps);
 s_edges=linspace(min(def_tab.stds),max(def_tab.stds),steps);
 m_edges=linspace(min(def_tab.means),max(def_tab.means),steps);
 n=histcounts2(def_tab.defs,def_tab.anoms,d_edges,a_edges);
+m=histcounts(no_def_tab.anoms,steps);
+p=histcounts(def_tab.anoms,steps);
+an=histcounts(all_tab.anoms,steps);
+nn=an/max(an);
+mn=m/max(m);
+pn=p/max(p);
+hold on
+b1=bar(nn,a_edges);
+b2=bar(pn,a_edges);
+b1.FaceAlpha=.3;
+b2.FaceAlpha=.3;
+xlabel("\sigma^0 Anomaly (dB)")
+title("Normalized Pixel Count for \sigma^0 Anomalies")
+legend("All Pixels","Deforested Pixels")
+hold off
 % figure(1)
 % hold on
 % cmap=parula;
@@ -81,5 +95,17 @@ xlim([0 max(def_tab.defs)])
 set(gca,"Yscale","log")
 xlabel("Deforestation Area (% of Pixel)")
 ylabel("Number of pixels")
-title("Pixel Deforestation Values")
+title("Pixel Deforestation Values (DETER)")
 hold off
+
+figure(8)
+pix=max(Tn.c);
+coverage=100*(pix-Tn.c)/pix;
+hold on
+ax=gca;
+xt=datetime(year(min(Tn.dates)),1,1):calmonths(6):datetime(year(max(Tn.dates)),12,31);
+ax.XTick=xt;
+plot(Tn.dates,coverage,'DatetimeTickFormat','yyyy','LineWidth',1.5)
+ylim([0 105])
+ylabel("Amazon Coverage (% of Total Pixels)")
+title("ERS-2 Amazon Coverage")

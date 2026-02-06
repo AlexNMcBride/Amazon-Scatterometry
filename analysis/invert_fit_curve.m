@@ -26,14 +26,14 @@ m=a_coef(1);
 b=a_coef(2);
 x_int=b/m;
 a_inv=polyval([1/m x_int],a_edges);
-% figure(2)
-% hold on
-% title("DETER \sigma^0 Anomaly vs. Deforestation (DETER)")
-% xlabel("\sigma^0 Anomaly (dB)")
-% ylabel("Deforestation Area (% of Pixel)")
-% scatter(def_tab.anoms,def_tab.defs,'.')
-% plot(a_edges,b_fit,'LineWidth',2)
-% ylim([min(def_tab.defs) max(def_tab.defs)])
-% grid on
-% hold off
+figure(2)
+hold on
+title("DETER \sigma^0 Anomaly vs. Deforestation (DETER)")
+xlabel("\sigma^0 Anomaly (dB)")
+ylabel("Deforestation Area (% of Pixel)")
+scatter(def_tab.anoms,def_tab.defs,'.')
+plot(a_edges,b_fit,'LineWidth',2)
+ylim([min(def_tab.defs) max(def_tab.defs)])
+grid on
+hold off
 
