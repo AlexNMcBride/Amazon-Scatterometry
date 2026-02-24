@@ -1,4 +1,4 @@
-function [r_anoms idxs] = find_ridge(nd)
+function [r_anoms idxs] = find_ridge(nd,a_edges)
 
 map=zeros(size(nd));
 for i=1:size(map,1)

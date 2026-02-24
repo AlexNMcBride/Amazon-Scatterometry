@@ -1,0 +1,11 @@
+box = [876, 1445, 1550, 2107];
+biome_clip_path = "/auto/home/mcbride/programs/tools/biome_clip";
+mask_file = "/auto/home/mcbride/Amazon-Scatterometry/base_rasters/ESCAT_cetb_biome_mask.tif";
+biome=readgeoraster(mask_file);
+mask = (biome ~= 0);
+climate_file = "/auto/home/mcbride/Amazon-Scatterometry/data/climate_zones.tif";
+climate=readgeoraster(climate_file);
+output = "/auto/home/mcbride/Amazon-Scatterometry/data/climate_zones.mat";
+climate_clip = double(climate) .* mask;
+clip = climate_clip(box(1):box(2),box(3):box(4));
+save(output, "clip");

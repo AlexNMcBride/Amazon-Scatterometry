@@ -24,7 +24,7 @@ a_fit=polyval(a_coef,d_edges);
 
 m=a_coef(1);
 b=a_coef(2);
-x_int=b/m;
+x_int=-b/m;
 a_inv=polyval([1/m x_int],a_edges);
 figure(2)
 hold on

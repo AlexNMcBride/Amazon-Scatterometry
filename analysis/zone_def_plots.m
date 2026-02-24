@@ -1,4 +1,4 @@
-zone = 2;
+zone = 5;
 
 d_output=sprintf("/auto/home/mcbride/Amazon-Scatterometry/data/zone_%d_def_anoms.mat",zone);
 p_output=sprintf("/auto/home/mcbride/Amazon-Scatterometry/data/zone_%d_pro_anoms.mat",zone);

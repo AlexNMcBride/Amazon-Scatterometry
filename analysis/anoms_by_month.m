@@ -1,4 +1,4 @@
-load("./data/ascat_scat_acc.mat")
+load("/auto/home/mcbride/Amazon-Scatterometry/data/ascat_scat_acc.mat")
 steps=200;
 a_edges=linspace(-4,4,steps);
 idx=~isnan(T.def1);
