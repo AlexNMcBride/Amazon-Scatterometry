@@ -8,3 +8,4 @@ rasterize/*/*logs
 rasterize/test
 rasterize/*/QGIS
 data
+plots/subplot_tight*
