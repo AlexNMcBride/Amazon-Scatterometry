@@ -20,6 +20,9 @@ elseif zone==6
     % Zone 6 - Ipixuna, Amazonas
     dboxy=335:380;
     dboxx=95:155;
+elseif zone==7
+    dboxy=380:410;
+    dboxx=420:445;
 else
     dboxy=1:570;
     dboxx=1:558;

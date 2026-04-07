@@ -1,7 +1,7 @@
 load("/auto/home/mcbride/Amazon-Scatterometry/data/ascat_scat_acc.mat")
 d_mask=load('/auto/home/mcbride/Amazon-Scatterometry/data/def_zones.mat').def_mask;
 p_mask=load('/auto/home/mcbride/Amazon-Scatterometry/data/pro_zones.mat').pro_mask;
-
+mask=load('/auto/home/mcbride/Amazon-Scatterometry/data/master_mask.mat').mask;
 d_output=sprintf("/auto/home/mcbride/Amazon-Scatterometry/data/t_zone_month_def_anoms.mat");
 p_output=sprintf("/auto/home/mcbride/Amazon-Scatterometry/data/t_zone_month_pro_anoms.mat");
 
@@ -24,7 +24,7 @@ pro_tab=table('size',[0 6], 'VariableTypes', {'int8' 'int8' 'single' 'double' 'd
     'VariableNames', {'zone' 'd_month' 'defs' 'anoms' 'stds' 'means'});
 ref_mean = zeros(size(T,1),1);
 for d_month=1:12
-    for zone=2:6
+    for zone=2:7
         def_mask=(d_mask==zone);
         pro_mask=(p_mask==zone);
         for i=1:size(T,1)
@@ -35,15 +35,19 @@ for d_month=1:12
             elseif month(t.dates)~=d_month
                 continue;
             end
-            def_pix=def_mask;
-            no_def_pix=pro_mask;
+            def_pix=logical(def_mask.*mask);
+            no_def_pix=logical(pro_mask.*mask);
             ref_pix=pro_mask & t.def2{1}<0.01;
             ref=mean(t.means2{1}(ref_pix),"all","omitmissing");
             ref_mean(i)=ref;
+	    d=t.def2{1}.*mask;
+	    m=t.means2{1}.*mask;
+	    s=t.stds2{1}.*mask;
             defs=t.def2{1}(def_pix);
             anoms=t.means2{1}(def_pix)-ref_mean(i);
             stds=t.stds2{1}(def_pix);
             means=t.means2{1}(def_pix);
+	    % apply master mask
             d_tab=table(repmat(zone,size(defs)),repmat(d_month,size(defs)),defs,anoms,stds,means,'VariableNames', {'zone' 'd_month' 'defs' 'anoms' 'stds' 'means'});
             n_tab=table(repmat(zone,size(t.def2{1}(no_def_pix))),repmat(d_month,size(t.def2{1}(no_def_pix))),t.def2{1}(no_def_pix),t.means2{1}(no_def_pix)-ref_mean(i),t.stds2{1}(no_def_pix),...
                 t.means2{1}(no_def_pix),'VariableNames', {'zone' 'd_month' 'defs' 'anoms' 'stds' 'means'});

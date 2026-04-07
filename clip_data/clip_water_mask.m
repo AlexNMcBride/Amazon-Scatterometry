@@ -1,0 +1,11 @@
+box = [876, 1445, 1550, 2107];
+mask_file = "/auto/home/mcbride/Amazon-Scatterometry/base_rasters/ESCAT_cetb_biome_mask.tif";
+biome=readgeoraster(mask_file);
+mask = (biome ~= 0);
+water_clip = "/auto/home/mcbride/Amazon-Scatterometry/output/river_mask.tif";
+water=readgeoraster(water_clip);
+water(water~=33)=1;
+water(water==33)=0;
+clip = water(box(1):box(2),box(3):box(4));
+output = "/auto/home/mcbride/Amazon-Scatterometry/data/water_mask.mat";
+save(output, "clip");

@@ -6,26 +6,30 @@ def_output = '/auto/home/mcbride/Amazon-Scatterometry/data/def_zones.mat';
 pro_output = '/auto/home/mcbride/Amazon-Scatterometry/data/pro_zones.mat';
 def_mask=double(mask);
 pro_mask=double(mask);
-% Zone 2 - Alta Floresta, Mato Grosso
+% Zone 2 - Alta Floresta, Mato Grosso (climate zone 3)
 dbox2y=435:490;
 dbox2x=315:370;
-% Zone 3 - Rio Brance, Acre
+% Zone 3 - Rio Brance, Acre (climate zone 2)
 dbox3y=382:415;
 dbox3x=175:197;
-% Zone 4 - Roraima
+% Zone 4 - Rorainópolis, Roraima (climate zone 1)
 dbox4y=180:215;
 dbox4x=285:315;
-% Zone 5 - Altamira, Para
+% Zone 5 - Altamira, Pará (climate zone 2)
 dbox5y=260:285;
 dbox5x=405:430;
-% Zone 6 - Ipixuna, Amazonas
+% Zone 6 - Ipixuna, Amazonas (climate zone 1)
 dbox6y=335:380;
 dbox6x=95:155;
+% Zone 7 - Santa Celícia, Pará (climate zone 3)
+dbox7y=380:410;
+dbox7x=420:445;
 def_mask(dbox2y,dbox2x)=2;
 def_mask(dbox3y,dbox3x)=3;
 def_mask(dbox4y,dbox4x)=4;
 def_mask(dbox5y,dbox5x)=5;
 def_mask(dbox6y,dbox6x)=6;
+def_mask(dbox7y,dbox7x)=7;
 % Zone 2 - Terra Indigena Menkragnoti
 pbox2y=430:465;
 pbox2x=396:411;
@@ -42,11 +46,15 @@ pbox5x=390:415;
 % Zone 6 - Terra Indigena Vale do Javari, Amazonas
 pbox6y=300:325;
 pbox6x=100:145;
+% Zone 7 - Terra Indigena Kayapó, Pará
+pbox7y=350:370;
+pbox7x=420:440;
 pro_mask(pbox2y,pbox2x)=2;
 pro_mask(pbox3y,pbox3x)=3;
 pro_mask(pbox4y,pbox4x)=4;
 pro_mask(pbox5y,pbox5x)=5;
 pro_mask(pbox6y,pbox6x)=6;
+pro_mask(pbox7y,pbox7x)=7;
 pro_mask(~mask)=0;
 def_mask(~mask)=0;
 figure(1)

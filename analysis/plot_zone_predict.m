@@ -1,20 +1,20 @@
-clear
 load("/auto/home/mcbride/Amazon-Scatterometry/data/ascat_scat_acc.mat")
 d_tab=load("/auto/home/mcbride/Amazon-Scatterometry/data/t_zone_month_def_anoms.mat").def_tab;
+mask=load('/auto/home/mcbride/Amazon-Scatterometry/data/master_mask.mat').mask;
 def_mask=load('/auto/home/mcbride/Amazon-Scatterometry/data/def_zones.mat').def_mask;
 pro_mask=load('/auto/home/mcbride/Amazon-Scatterometry/data/pro_zones.mat').pro_mask;
 
 def_min=0.1;
 t=T(end,:);
-% t=T(end-7,:);
-zone=3;
+%t=T(end-7,:);
+zone=4;
 steps=100;
 a_range=[-5 2];
 d_range=[0 100];
 d_edges=linspace(0,100,steps);
 a_edges=linspace(-5,2,steps);
-d_mask=(def_mask==zone);
-p_mask=(pro_mask==zone);
+d_mask=logical(def_mask==zone.*mask);
+p_mask=logical(pro_mask==zone.*mask);
 dry_months=[7:9];
 wet_months=[1:6,10:12];
 
@@ -30,9 +30,9 @@ else
 end
 
 [ys,xs]=get_def_box(zone);
-d=t.def2{1}(ys,xs);
-a=t.anoms2{1}(ys,xs);
 regs=reg_tab(zone-1,:);
+d=t.def2{1}(ys,xs);
+a=t.means2{1}(ys,xs) - regs.mean;
 m_coefs=[regs.m_mean regs.b_mean];
 mi_coefs=invert_fit(m_coefs);
 r_coefs=[regs.m_ridge regs.b_ridge];
@@ -89,9 +89,9 @@ ylabel("\sigma^0 Anomaly (dB)")
 hold off
 
 % stats
-d_tot=sum(d_min,"all");
-m_tot=sum(m_pred,"all");
-m_corr=corr2(d_min,m_pred);
-r_tot=sum(r_pred,"all");
-r_corr=corr2(d_min,r_pred);
+d_tot=sum(d_min,"all")
+m_tot=sum(m_pred,"all")
+m_corr=corr2(d_min,m_pred)
+r_tot=sum(r_pred,"all")
+r_corr=corr2(d_min,r_pred)
 

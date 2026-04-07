@@ -3,18 +3,20 @@ wet_output="/auto/home/mcbride/Amazon-Scatterometry/data/t_wet_predict.mat";
 dry_output="/auto/home/mcbride/Amazon-Scatterometry/data/t_dry_predict.mat";
 t=T(end,:);
 
-wet_pred=table('size',[5 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
+wet_pred=table('size',[0 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
     'VariableNames', {'zone' 'd_tot' 'm_tot' 'r_tot' 'm_corr' 'r_corr' 'min_def'});
-for zone=2:6
+for zone=2:7
     [dt,mt,rt,mc,rc,md]=predict_zone(zone,t);
-    wet_pred(zone-1,:)=table(zone,dt,mt,rt,mc,rc,md,'VariableNames', {'zone' 'd_tot' 'm_tot' 'r_tot' 'm_corr' 'r_corr' 'min_def'});
+    w_pred=table(zone,dt,mt,rt,mc,rc,md,'VariableNames', {'zone' 'd_tot' 'm_tot' 'r_tot' 'm_corr' 'r_corr' 'min_def'});
+    wet_pred=[wet_pred;w_pred];
 end
 t=T(end-7,:);
-dry_pred=table('size',[5 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
+dry_pred=table('size',[0 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
     'VariableNames', {'zone' 'd_tot' 'm_tot' 'r_tot' 'm_corr' 'r_corr' 'min_def'});
-for zone=2:6
+for zone=2:7
     [dt,mt,rt,mc,rc,md]=predict_zone(zone,t);
-    dry_pred(zone-1,:)=table(zone,dt,mt,rt,mc,rc,md,'VariableNames', {'zone' 'd_tot' 'm_tot' 'r_tot' 'm_corr' 'r_corr' 'min_def'});
+    d_pred=table(zone,dt,mt,rt,mc,rc,md,'VariableNames', {'zone' 'd_tot' 'm_tot' 'r_tot' 'm_corr' 'r_corr' 'min_def'});
+    dry_pred=[dry_pred;d_pred];
 end
 
 save(wet_output,"wet_pred");

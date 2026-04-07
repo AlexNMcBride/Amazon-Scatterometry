@@ -7,16 +7,16 @@ wet_output="/auto/home/mcbride/Amazon-Scatterometry/data/t_wet_reg_coefs.mat";
 dry_months = [7:9];
 wet_months=[1:6,10:12];
 
-wet_tab=table('size',[5 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
+wet_tab=table('size',[0 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
     'VariableNames', {'zone' 'm_mean' 'b_mean' 'm_ridge' 'b_ridge' 'mean' 'std'});
 steps=100;
 def_min=0.1;
 d_edges=linspace(0,100,steps);
 a_edges=linspace(-5,2,steps);
-for zone=2:6
+for zone=2:7
     d_idx=(def_tab.zone==zone & ismember(def_tab.d_month,wet_months) & def_tab.defs>def_min);
     zd_tab=def_tab(d_idx,:);
-    p_idx=(pro_tab.zone==zone & ismember(pro_tab.d_month,wet_months)& pro_tab.defs<def_min);
+    p_idx=(pro_tab.zone==zone & ismember(pro_tab.d_month,wet_months) & pro_tab.defs<def_min);
     zp_tab=pro_tab(p_idx,:);
     p_mean=mean(zp_tab.means);
     p_std=std(zp_tab.anoms);
@@ -32,10 +32,12 @@ for zone=2:6
     r_coefs=invert_fit(b_coef);
     w_tab=table(zone, m_coefs(1),m_coefs(2),r_coefs(1),r_coefs(2),p_mean,p_std, 'VariableNames', ...
         {'zone' 'm_mean' 'b_mean' 'm_ridge' 'b_ridge' 'mean' 'std'});
-    wet_tab(zone-1,:)=w_tab;
+    wet_tab=[wet_tab;w_tab];
 end
 
-for zone=2:6
+dry_tab=table('size',[0 7], 'VariableTypes', {'int8' 'double' 'double' 'double' 'double' 'double' 'double'}, ...
+    'VariableNames', {'zone' 'm_mean' 'b_mean' 'm_ridge' 'b_ridge' 'mean' 'std'});
+for zone=2:7
     d_idx=(def_tab.zone==zone & ismember(def_tab.d_month,dry_months) & def_tab.defs>def_min);
     zd_tab=def_tab(d_idx,:);
     p_idx=(pro_tab.zone==zone & ismember(pro_tab.d_month,dry_months)& pro_tab.defs<def_min);
@@ -54,5 +56,7 @@ for zone=2:6
     r_coefs=invert_fit(b_coef);
     d_tab=table(zone, m_coefs(1),m_coefs(2),r_coefs(1),r_coefs(2),p_mean,p_std, 'VariableNames', ...
         {'zone' 'm_mean' 'b_mean' 'm_ridge' 'b_ridge' 'mean' 'std'});
-    dry_tab(zone-1,:)=d_tab;
+    dry_tab=[dry_tab;d_tab];
 end
+save(dry_output,"dry_tab")
+save(wet_output,"wet_tab")
